@@ -1,0 +1,90 @@
+- 環境
+source activate label_project_env
+
+
+- 基本設定
+run.sh
+本機端 ip 設定 127.0.0.1 (非公開) 0.0.0.0 (公開)
+VM ip 設定自己 ip位置 ex: 172.24.41.55
+
+- 啟動指令
+// 先刪除舊的my_project 資料夾
+cd tools 
+啟動指令 sh run.sh 
+
+
+ML backend : https://labelstud.io/guide/ml.html#Create-your-own-ML-backend
+
+- 基本設定 安裝
+cd label-studio-master
+pip install -e .
+cd label_studio/ml/examples
+pip install -r requirements.txt
+// 此處會裝 tensorflow torch …. 等等
+
+- 啟動 ML server 
+cd ..
+cd ..
+// 先刪除舊的 my_ml_backend 資料夾
+// simple_text_classifier.py 可換成自己的model 
+label-studio-ml init my_ml_backend --script label-studio/ml/examples/simple_text_classifier.py
+label-studio-ml start my_ml_backend
+// 此處為 server 端
+
+// 開啟另一個終端機 
+// text_classification_project 為資料夾名稱 可換為自己的資料夾命名
+label-studio start text_classification_project --init —ml-backend http://localhost:9090
+
+
+- dummy_model 跑法
+label-studio-ml init my_ml_backend_random --script label_studio/ml/examples/dummy_model.py
+label-studio-ml start my_ml_backend_random
+label-studio start random_choice_project --init --ml-backend http://localhost:9090 
+
+ - pip 端 dummy_model 跑法
+label-studio-ml init my_ml_backend_random --script /Users/james/opt/anaconda3/envs/label_project_env/lib/python3.6/site-packages/label_studio/ml/examples/dummy_model.py
+
+label-studio-ml start my_ml_backend_random
+label-studio start random_choice_project --init --ml-backend http://localhost:9090 
+
+問題
+
+1. Address already in use
+    * lsof -i:8080
+    * kill “PID” (PID 換成正在使用 8080 port 的 PID)
+    * // or kill -9 “PID”
+2. model exist 
+    * my_project 沒刪掉
+    * my_ml_backend 沒刪掉
+3. 版本問題
+    * 通常為沒有使用 python3 ，設定環境為 python 3 即可解決
+    * source ~/.bash_profile
+4. 位置的單位不同 (x, y 長寬)
+    * label studio 百分比5
+    * 票據模型 pixel 
+    * 找到轉存 json 的點 （找存到 completion的點）
+
+
+/////
+<View>
+  <Image name="image" value="$image"/>
+
+  <RectangleLabels name="label" toName="image">
+    <Label value="DATE" background="green"/>
+    <Label value="AMOUNT" background="blue"/>
+    <Label value="S_AMOUNT" background="red"/>
+    <Label value="NONNEGOT" background="yellow"/>
+    <Label value="SEAL" background="purple"/>
+    <Label value="PAY_TO" background="white"/>
+  </RectangleLabels>
+
+  <Header value="Describe object" />
+  <TextArea name="answer" toName="image" editable="true"
+            perRegion="true" required="true" />
+
+  <View style="width: 100%; display: block">
+    <Header value="Select bbox after creation to go next"/>
+  </View>
+</View>
+
+//////

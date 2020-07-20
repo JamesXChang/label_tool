@@ -1,0 +1,19 @@
+<View>
+  <Image name="image" value="$image"></Image>
+
+  <RectangleLabels name="label" toName="image">
+    <Label value="DATE" background="green"></Label>
+    <Label value="AMOUNT" background="blue"></Label>
+    <Label value="S_AMOUNT" background="red"></Label>
+    <Label value="NONNEGOT" background="yellow"></Label>
+    <Label value="SEAL" background="purple"></Label>
+    <Label value="PAY_TO" background="white"></Label>
+  </RectangleLabels>
+
+  <Header value="Describe object"></Header>
+  <TextArea name="answer" toName="image" editable="true" perRegion="true"></TextArea>
+
+  <View style="width: 100%; display: block">
+    <Header value="Select bbox after creation to go next"></Header>
+  </View>
+</View>

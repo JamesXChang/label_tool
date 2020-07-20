@@ -1,0 +1,205 @@
+{
+  "completions": [
+    {
+      "created_at": 1595233912,
+      "id": 1001,
+      "lead_time": 11.546,
+      "result": [
+        {
+          "from_name": "label",
+          "id": "izBaLED55n",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "rectanglelabels",
+          "value": {
+            "height": 29.40779220779221,
+            "rectanglelabels": [
+              "DATE"
+            ],
+            "rotation": 0,
+            "width": 184.5666666666667,
+            "x": 885.2666666666668,
+            "y": 135.6025974025974
+          }
+        },
+        {
+          "from_name": "answer",
+          "id": "izBaLED55n",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "textarea",
+          "value": {
+            "height": 29.40779220779221,
+            "rotation": 0,
+            "text": [
+              "106\u5e7412\u670815\u65e5"
+            ],
+            "width": 184.5666666666667,
+            "x": 885.2666666666668,
+            "y": 135.6025974025974
+          }
+        },
+        {
+          "from_name": "label",
+          "id": "RfYF3nzMN9",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "rectanglelabels",
+          "value": {
+            "height": 42.88636363636363,
+            "rectanglelabels": [
+              "AMOUNT"
+            ],
+            "rotation": 0,
+            "width": 235.24414414414417,
+            "x": 390.3445945945946,
+            "y": 243.22694805194806
+          }
+        },
+        {
+          "from_name": "answer",
+          "id": "RfYF3nzMN9",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "textarea",
+          "value": {
+            "height": 42.88636363636363,
+            "rotation": 0,
+            "text": [
+              "\u634c\u842c\u5143\u6574"
+            ],
+            "width": 235.24414414414417,
+            "x": 390.3445945945946,
+            "y": 243.22694805194806
+          }
+        },
+        {
+          "from_name": "label",
+          "id": "0Dqn_JfJwS",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "rectanglelabels",
+          "value": {
+            "height": 24.50649350649351,
+            "rectanglelabels": [
+              "S_AMOUNT"
+            ],
+            "rotation": 0,
+            "width": 111.06666666666666,
+            "x": 942.4333333333334,
+            "y": 199.31948051948052
+          }
+        },
+        {
+          "from_name": "answer",
+          "id": "0Dqn_JfJwS",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "textarea",
+          "value": {
+            "height": 24.50649350649351,
+            "rotation": 0,
+            "text": [
+              "80,000"
+            ],
+            "width": 111.06666666666666,
+            "x": 942.4333333333334,
+            "y": 199.31948051948052
+          }
+        },
+        {
+          "from_name": "label",
+          "id": "A4f9yNm0Ga",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "rectanglelabels",
+          "value": {
+            "height": 147.03896103896105,
+            "rectanglelabels": [
+              "NONNEGOT"
+            ],
+            "rotation": 0,
+            "width": 40.833333333333336,
+            "x": 707.2333333333333,
+            "y": 318.5844155844155
+          }
+        },
+        {
+          "from_name": "label",
+          "id": "CKKTn8FcvX",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "rectanglelabels",
+          "value": {
+            "height": 53.91428571428572,
+            "rectanglelabels": [
+              "SEAL"
+            ],
+            "rotation": 0,
+            "width": 365.86666666666673,
+            "x": 761.1333333333333,
+            "y": 367.5974025974026
+          }
+        },
+        {
+          "from_name": "label",
+          "id": "orQMqsLtQC",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "rectanglelabels",
+          "value": {
+            "height": 39.21038961038961,
+            "rectanglelabels": [
+              "PAY_TO"
+            ],
+            "rotation": 0,
+            "width": 454.04316546762584,
+            "x": 393.64508393285377,
+            "y": 184.6155844155844
+          }
+        },
+        {
+          "from_name": "answer",
+          "id": "orQMqsLtQC",
+          "original_height": 629,
+          "original_width": 1225,
+          "source": "$image",
+          "to_name": "image",
+          "type": "textarea",
+          "value": {
+            "height": 39.21038961038961,
+            "rotation": 0,
+            "text": [
+              "\u65b0\u7af9\u7e23\u4e94\u5cf0\u9109\u6843\u5c71\u570b\u6c11\u5c0f\u5b78"
+            ],
+            "width": 454.04316546762584,
+            "x": 393.64508393285377,
+            "y": 184.6155844155844
+          }
+        }
+      ]
+    }
+  ],
+  "data": {
+    "image": "/data/upload/e671fe1c1bd425d2d20ea9c5c0d17da5-sample.jpg"
+  },
+  "id": 1
+}
