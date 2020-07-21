@@ -14,7 +14,10 @@ from rq import Queue, get_current_job
 from rq.registry import StartedJobRegistry, FinishedJobRegistry, FailedJobRegistry
 from rq.job import Job
 
-from ..utils.misc import parse_config
+import sys
+sys.path.append("../utils")
+
+from misc import parse_config
 
 
 logger = logging.getLogger(__name__)

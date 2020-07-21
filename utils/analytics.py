@@ -26,7 +26,7 @@ class Analytics(object):
         self._collect_analytics = collect_analytics
         self._project_name = convert_string_to_hash(project_name)
 
-        self._version = get_app_version()
+        self._version = "0.7.3"
         self._user_id = self._get_user_id()
         self._label_types = self._get_label_types()
         self._context = context or {}

@@ -3,8 +3,8 @@ import logging
 import argparse
 import shutil
 
-from utils.io import find_dir
-from ml.utils import get_all_classes_inherited_LabelStudioMLBase
+# from utils.io import find_dir
+from utils import get_all_classes_inherited_LabelStudioMLBase
 
 
 logger = logging.getLogger(__name__)
@@ -33,11 +33,15 @@ def get_args():
         '--force', dest='force', action='store_true',
         help='Force recreating the project if exists')
 
+    # print(parser_init)
+
     # start sub-command parser
     parser_start = subparsers.add_parser('start', help='Initialize Label Studio', parents=[root_parser])
     parser_start.add_argument(
         'project_name',
         help='Path to directory where project state will be initialized')
+
+    # print(parser_start)
 
     args, subargs = parser.parse_known_args()
     return args, subargs
@@ -45,7 +49,7 @@ def get_args():
 
 def create_dir(args):
     output_dir = os.path.join(args.root_dir, args.project_name)
-    print(output_dir)
+    # print(output_dir)
     if os.path.exists(output_dir) and args.force:
         shutil.rmtree(output_dir)
     elif os.path.exists(output_dir):
@@ -61,9 +65,6 @@ def create_dir(args):
     else:
         script_path = args.script
 
-    if not os.path.exists(script_path):
-        raise FileNotFoundError(script_path)
-
     if ':' not in script_path:
         model_classes = get_all_classes_inherited_LabelStudioMLBase(script_path)
         if len(model_classes) > 1:
@@ -71,9 +72,16 @@ def create_dir(args):
                 'You don\'t specify target model class, and we\'ve found {num} possible candidates within {script}. '
                 'Please specify explicitly which one should be used using the following format:\n '
                 '{script}:{model_class}'.format(num=len(model_classes), script=script_path, model_class=model_classes[0]))
-        model_class = model_classes[0]
+        elif len(model_classes) >0:
+            model_class = model_classes[0]
+        else:
+            # print(model_classes)
+            model_class = model_classes
     else:
         script_path, model_class = args.script.split(':')
+
+    if not os.path.exists(script_path):
+        raise FileNotFoundError(script_path)
 
     script_base_name = os.path.basename(script_path)
     local_script_path = os.path.join(output_dir, os.path.basename(script_path))
@@ -99,9 +107,12 @@ def start_server(args, subprocess_params):
 
 def main():
     args, subargs = get_args()
-
     if args.command == 'init':
-        print(args)
+        # print(args)
         create_dir(args)
     elif args.command == 'start':
         start_server(args, subargs)
+    print("Create ML backend success!")
+
+if __name__ == "__main__":
+    main()

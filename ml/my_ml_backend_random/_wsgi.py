@@ -5,7 +5,7 @@ import sys
 sys.path.append("../")
 
 from ml import init_app
-from {script} import {model_class}
+from dummy_model import DummyModel
 
 
 if __name__ == "__main__":
@@ -63,11 +63,11 @@ if __name__ == "__main__":
     kwargs = parse_kwargs() if args.kwargs else dict()
 
     if args.check:
-        print('Check "' + {model_class}.__name__ + '" instance creation..')
-        model = {model_class}(**kwargs)
+        print('Check "' + DummyModel.__name__ + '" instance creation..')
+        model = DummyModel(**kwargs)
 
     app = init_app(
-        model_class={model_class},
+        model_class=DummyModel,
         model_dir=os.environ.get('MODEL_DIR', args.model_dir),
         redis_queue=os.environ.get('RQ_QUEUE_NAME', 'default'),
         redis_host=os.environ.get('REDIS_HOST', 'localhost'),
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 else:
     # for uWSGI use
     app = init_app(
-        model_class={model_class},
+        model_class=DummyModel,
         model_dir=os.environ.get('MODEL_DIR', os.path.dirname(__file__)),
         redis_queue=os.environ.get('RQ_QUEUE_NAME', 'default'),
         redis_host=os.environ.get('REDIS_HOST', 'localhost'),

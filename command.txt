@@ -47,6 +47,17 @@ label-studio-ml init my_ml_backend_random --script /Users/james/opt/anaconda3/en
 label-studio-ml start my_ml_backend_random
 label-studio start random_choice_project --init --ml-backend http://localhost:9090 
 
+Local 端跑法！！！！
+
+* 一般標記工具
+python server.py start labeling_project --init --force  
+
+* ML
+python server.py init my_ml_backend_random --force --script examples/dummy_model.py:DummyModel
+python server.py start my_ml_backend_random 
+python server.py start random_choice_project --init --ml-backend http://localhost:9090 --force
+
+
 問題
 
 1. Address already in use

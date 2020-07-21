@@ -15,7 +15,7 @@ from lxml import etree, objectify
 from datetime import datetime
 from dateutil.tz import tzlocal
 
-from .io import find_dir
+# from io import find_dir
 
 logger = logging.getLogger(__name__)
 

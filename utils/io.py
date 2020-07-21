@@ -17,9 +17,9 @@ def good_path(path):
 
 def find_node(package_name, node_path, node_type):
     assert node_type in ('dir', 'file', 'any')
-    print(package_name)
-    print(node_path)
-    print(node_type)
+    # print(package_name)
+    # print(node_path)
+    # print(node_type)
     basedir = pkg_resources.resource_filename(package_name, '')
     node_path = os.path.join(*node_path.split('/'))  # linux to windows compatibility
     search_by_path = '/' in node_path or '\\' in node_path
