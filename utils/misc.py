@@ -184,7 +184,7 @@ def parse_config(config_string):
 
 
 def iter_config_templates():
-    templates_dir = find_dir('examples')
+    templates_dir = 'examples'
     for d in os.listdir(templates_dir):
         # check xml config file exists
         path = os.path.join(templates_dir, d, 'config.xml')

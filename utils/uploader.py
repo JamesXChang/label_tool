@@ -19,7 +19,7 @@ from urllib.request import urlopen
 
 from .exceptions import ValidationError
 from .misc import Settings
-from label_studio.utils.functions import HOSTNAME
+from utils.functions import HOSTNAME
 
 
 settings = Settings

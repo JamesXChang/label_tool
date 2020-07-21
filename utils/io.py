@@ -17,6 +17,9 @@ def good_path(path):
 
 def find_node(package_name, node_path, node_type):
     assert node_type in ('dir', 'file', 'any')
+    print(package_name)
+    print(node_path)
+    print(node_type)
     basedir = pkg_resources.resource_filename(package_name, '')
     node_path = os.path.join(*node_path.split('/'))  # linux to windows compatibility
     search_by_path = '/' in node_path or '\\' in node_path
@@ -52,8 +55,8 @@ def find_dir(directory):
 def find_editor_files():
     """ Find editor files to include in html
     """
-    editor_js_dir = find_dir('static/editor/js')
-    editor_css_dir = find_dir('static/editor/css')
+    editor_js_dir = './static/editor/js'
+    editor_css_dir = './static/editor/css'
     editor_js = ['static/editor/js/' + f for f in os.listdir(editor_js_dir) if f.endswith('.js')]
     editor_css = ['static/editor/css/' + f for f in os.listdir(editor_css_dir) if f.endswith('.css')]
     return {'editor_css': editor_css, 'editor_js': editor_js}

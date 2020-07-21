@@ -4,7 +4,7 @@ import inspect
 import os
 import sys
 
-from .model import LabelStudioMLBase
+from model import LabelStudioMLBase
 
 
 def get_all_classes_inherited_LabelStudioMLBase(script_file):

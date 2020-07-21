@@ -3,7 +3,7 @@ import json
 import os
 import urllib
 
-from label_studio.utils.io import iter_files
+from utils.io import iter_files
 
 
 class Tasks(object):
@@ -17,7 +17,7 @@ class Tasks(object):
     def _create_task_with_local_uri(self, filepath, data_key, task_id):
         """ Convert filepath to task with flask serving URL
         """
-        from label_studio.utils.functions import HOSTNAME
+        from utils.functions import HOSTNAME
 
         filename = os.path.basename(filepath)
         params = urllib.parse.urlencode({'d': os.path.dirname(filepath)})

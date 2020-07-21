@@ -13,7 +13,7 @@ from wtforms import StringField, BooleanField
 from wtforms.validators import InputRequired, Optional, ValidationError
 from collections import OrderedDict
 
-from label_studio.utils.io import json_load
+from utils.io import json_load
 
 logger = logging.getLogger(__name__)
 

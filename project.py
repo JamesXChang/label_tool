@@ -13,15 +13,15 @@ from copy import deepcopy
 
 from label_studio_converter import Converter
 
-from label_studio.utils.misc import (
+from utils.misc import (
     config_line_stripped, config_comments_free, parse_config, timestamp_now, timestamp_to_local_datetime)
-from label_studio.utils.analytics import Analytics
-from label_studio.utils.models import ProjectObj, MLBackend
-from label_studio.utils.exceptions import ValidationError
-from label_studio.utils.io import find_file, delete_dir_content, json_load
-from label_studio.utils.validation import is_url
-from label_studio.tasks import Tasks
-from label_studio.storage import create_storage, get_available_storage_names
+from utils.analytics import Analytics
+from utils.models import ProjectObj, MLBackend
+from utils.exceptions import ValidationError
+from utils.io import find_file, delete_dir_content, json_load
+from utils.validation import is_url
+from tasks import Tasks
+from storage import create_storage, get_available_storage_names
 
 logger = logging.getLogger(__name__)
 
@@ -641,7 +641,8 @@ class Project(object):
             delete_dir_content(dir)
         os.makedirs(dir, exist_ok=True)
 
-        config = json_load(args.config_path) if args.config_path else json_load(find_file('default_config.json'))
+        # config = json_load(args.config_path) if args.config_path else json_load(find_file('default_config.json'))
+        config = json_load(args.config_path) if args.config_path else json_load('utils/schema/default_config.json')
 
         def already_exists_error(what, path):
             raise RuntimeError('{path} {what} already exists. Use "--force" option to recreate it.'.format(
@@ -662,7 +663,7 @@ class Project(object):
                 already_exists_error('label config', config_xml_path)
             if not input_path:
                 # create default config with polygons only if input data is not set
-                default_label_config = find_file('examples/adv_region_image/config.xml')
+                default_label_config = 'examples/adv_region_image/config.xml'
                 copy2(default_label_config, config_xml_path)
                 print(default_label_config + ' label config copied to ' + config_xml_path)
             else:

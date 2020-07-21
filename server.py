@@ -28,22 +28,22 @@ from flask import (
 from flask_api import status
 from types import SimpleNamespace
 
-from label_studio.utils.functions import generate_sample_task
-from label_studio.utils.io import find_dir, find_editor_files
-from label_studio.utils import uploader
-from label_studio.utils.validation import TaskValidator
-from label_studio.utils.exceptions import ValidationError
-from label_studio.utils.functions import generate_sample_task_without_check
-from label_studio.utils.misc import (
+from utils.functions import generate_sample_task
+from utils.io import find_dir, find_editor_files
+from utils import uploader
+from utils.validation import TaskValidator
+from utils.exceptions import ValidationError
+from utils.functions import generate_sample_task_without_check
+from utils.misc import (
     exception_treatment, exception_treatment_page,
     config_line_stripped, get_config_templates, convert_string_to_hash, serialize_class
 )
-from label_studio.utils.argparser import parse_input_args
-from label_studio.utils.uri_resolver import resolve_task_data_uri
-from label_studio.storage import get_storage_form
+from utils.argparser import parse_input_args
+from utils.uri_resolver import resolve_task_data_uri
+from storage import get_storage_form
 
-from label_studio.project import Project
-from label_studio.tasks import Tasks
+from project import Project
+from tasks import Tasks
 
 logger = logging.getLogger(__name__)
 
@@ -107,7 +107,7 @@ def app_init():
 def send_media(path):
     """ Static for label tool js and css
     """
-    media_dir = find_dir('static/media')
+    media_dir = 'static/media'
     return flask.send_from_directory(media_dir, path)
 
 
@@ -126,7 +126,7 @@ def send_upload(path):
 def send_static(path):
     """ Static serving
     """
-    static_dir = find_dir('static')
+    static_dir = 'static'
     return flask.send_from_directory(static_dir, path)
 
 
@@ -932,15 +932,15 @@ def main():
 
     # On `start` command, launch browser if --no-browser is not specified and start label studio server
     if input_args.command == 'start':
-        import label_studio.utils.functions
+        import utils.functions
 
         config = Project.get_config(input_args.project_name, input_args)
         host = input_args.host or config.get('host', 'localhost')
         port = input_args.port or config.get('port', 8080)
-        label_studio.utils.functions.HOSTNAME = 'http://localhost:' + str(port)
+        utils.functions.HOSTNAME = 'http://localhost:' + str(port)
 
         try:
-            start_browser(label_studio.utils.functions.HOSTNAME, input_args.no_browser)
+            start_browser(utils.functions.HOSTNAME, input_args.no_browser)
             app.run(host=host, port=port, debug=input_args.debug)
         except OSError as e:
             # address already is in use
@@ -948,8 +948,8 @@ def main():
                 new_port = int(port) + 1
                 print('\n*** WARNING! ***\n* Port ' + str(port) + ' is in use.\n'
                       '* Try to start at ' + str(new_port) + '\n****************\n')
-                label_studio.utils.functions.HOSTNAME = 'http://localhost:' + str(new_port)
-                start_browser(label_studio.utils.functions.HOSTNAME, input_args.no_browser)
+                utils.functions.HOSTNAME = 'http://localhost:' + str(new_port)
+                start_browser(utils.functions.HOSTNAME, input_args.no_browser)
                 app.run(host=host, port=new_port, debug=input_args.debug)
             else:
                 raise e

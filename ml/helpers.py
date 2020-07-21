@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from label_studio.ml import LabelStudioMLBase
+from ml import LabelStudioMLBase
 
 
 class LabelStudioMLBaseHelper(LabelStudioMLBase):

@@ -3,8 +3,8 @@ import logging
 import argparse
 import shutil
 
-from label_studio.utils.io import find_dir
-from label_studio.ml.utils import get_all_classes_inherited_LabelStudioMLBase
+from utils.io import find_dir
+from ml.utils import get_all_classes_inherited_LabelStudioMLBase
 
 
 logger = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ def create_dir(args):
     elif os.path.exists(output_dir):
         raise FileExistsError('Model directory already exists. Please remove it or use --force option.')
 
-    default_configs_dir = find_dir('default_configs')
+    default_configs_dir = 'default_configs'
     shutil.copytree(default_configs_dir, output_dir, ignore=shutil.ignore_patterns('*.tmpl'))
 
     # extract script name and model class

@@ -3,7 +3,7 @@ import logging
 from flask import Flask, request, jsonify, send_file
 from rq.exceptions import NoSuchJobError
 
-from label_studio.ml.model import LabelStudioMLManager
+from ml.model import LabelStudioMLManager
 
 logger = logging.getLogger(__name__)
 

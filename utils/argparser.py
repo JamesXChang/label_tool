@@ -1,8 +1,8 @@
 import os
 import json
 
-from label_studio.utils.io import find_dir
-from label_studio.utils.misc import iter_config_templates
+from utils.io import find_dir
+from utils.misc import iter_config_templates
 
 
 def parse_input_args():
@@ -12,7 +12,7 @@ def parse_input_args():
     """
     import sys
     import argparse
-    from label_studio.project import Project
+    from project import Project
 
     if len(sys.argv) == 1:
         print('\nQuick start usage: label-studio start my_project --init\n')
@@ -144,7 +144,9 @@ def parse_input_args():
 
     label_config_explicitly_specified = hasattr(args, 'label_config') and args.label_config
     if args.template and not label_config_explicitly_specified:
-        args.label_config = os.path.join(find_dir('examples'), args.template, 'config.xml')
+        args.label_config = os.path.join('examples', args.template, 'config.xml')
+        print("======================args.label_config===========================")
+        print(args.label_config)
     if not hasattr(args, 'label_config'):
         args.label_config = None
     return args

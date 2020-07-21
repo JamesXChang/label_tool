@@ -14,7 +14,7 @@ from rq import Queue, get_current_job
 from rq.registry import StartedJobRegistry, FinishedJobRegistry, FailedJobRegistry
 from rq.job import Job
 
-from label_studio.utils.misc import parse_config
+from ..utils.misc import parse_config
 
 
 logger = logging.getLogger(__name__)

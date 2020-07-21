@@ -2,7 +2,7 @@ import json
 import os
 import logging
 
-from label_studio.utils.io import json_load, delete_dir_content, iter_files
+from utils.io import json_load, delete_dir_content, iter_files
 from .base import BaseStorage, BaseForm, CloudStorage
 
 
