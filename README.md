@@ -11,11 +11,11 @@
 pip install requirements.txt
 ``` 
 
-若是在 VM 環境下執行，需將 server.py 
-- 第 965、967、978 行的 localhost 更改為 ip位置
+- 若是在 VM 環境下執行，需將 server.py 
+  - 第 965、967、978 行的 localhost 更改為 ip位置
 
-請使用 python=3.6
-強制結束 Control + c
+- 請使用 python=3.6
+- 強制結束 Control + c
 
 ## Quick Start - 啟動一般標記工具
 
