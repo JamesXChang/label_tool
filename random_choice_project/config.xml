@@ -1,31 +1,51 @@
 <View>
   <Image name="image" value="$image"></Image>
 
+    <Header value=""></Header>
+    
+    <RectangleLabels name="label" toName="image">
+    <View style="width:80%;height:20%;">
+      <Header value="&#27231;&#25171;" style="color:#FA8072;font-size:100%;"></Header>
+      <Label value="DATE_O" background="green"></Label>
+      <Label value="AMOUNT_O" background="blue"></Label>
+      <Label value="S_AMOUNT_O" background="red"></Label>
+      <Label value="NONNEGOT_S" background="yellow"></Label>
+      <Label value="SEAL_S" background="purple"></Label>
+      <Label value="PAY_TO_O" background="black"></Label>
+      <Header value=""></Header>
+  	</View>
   
-  <Header value="手寫"></Header>
-  <RectangleLabels name="label" toName="image">
-    <Label value="DATE" background="green"></Label>
-    <Label value="AMOUNT" background="blue"></Label>
-    <Label value="S_AMOUNT" background="red"></Label>
-    <Label value="NONNEGOT" background="yellow"></Label>
-    <Label value="SEAL" background="purple"></Label>
-    <Label value="PAY_TO" background="white"></Label>
-  </RectangleLabels>
+  	<View style="width:80%;height:20%;">
+      <Header value="&#25163;&#23531;" style="color:#3498DB;font-size:100%;"></Header>
+      <Label value="DATE_W" background="green"></Label>
+      <Label value="AMOUNT_W" background="blue"></Label>
+      <Label value="S_AMOUNT_W" background="red"></Label>
+      <Label value="NONNEGOT_W" background="yellow"></Label>
+      <Label value="SEAL_W" background="purple"></Label>
+      <Label value="PAY_TO_W" background="black"></Label>
+      <Header value=""></Header>
+  	</View>
   
-  <Header value="機打"></Header>
-  <RectangleLabels name="label2" toName="image">
-    <Label value="DATE2" background="green"></Label>
-    <Label value="AMOUNT2" background="blue"></Label>
-    <Label value="S_AMOUNT2" background="red"></Label>
-    <Label value="NONNEGOT2" background="yellow"></Label>
-    <Label value="SEAL2" background="purple"></Label>
-    <Label value="PAY_TO2" background="white"></Label>
-  </RectangleLabels>
+  	<View style="width:80%;height:20%;">
+      <Header value="&#31354;&#30333;" style="color:#52BE80;font-size:100%;"></Header>
+      <Label value="DATE_B" background="green"></Label>
+      <Label value="AMOUNT_B" background="blue"></Label>
+      <Label value="S_AMOUNT_B" background="red"></Label>
+      <Label value="AREA" background="purple"></Label>
+      <Label value="PAY_TO_B" background="black"></Label>
+      <Header value=""></Header>
+  	</View>
+  
+  	<View style="width:80%;height:20%;">
+      <Header value="&#20854;&#20182;" style="color:#B2BABB;font-size:100%;"></Header>
+      <Label value="NONNEGOT_I" background="green"></Label>
+      <Label value="PAY_TO_S" background="black"></Label>
+      <Header value=""></Header>
+  	</View>
+   </RectangleLabels>
 
-  <Header value="Describe object"></Header>
+  
+  <Header value="&#36664;&#20837;&#29289;&#20214;&#20839;&#23481; (&#35531;&#40670;&#36984;&#19978;&#22294;&#24050;&#27161;&#35352;&#29289;&#20214;)"></Header>
   <TextArea name="answer" toName="image" editable="true" perRegion="true"></TextArea>
 
-  <View style="width: 100%; display: block">
-    <Header value="Select bbox after creation to go next"></Header>
-  </View>
 </View>

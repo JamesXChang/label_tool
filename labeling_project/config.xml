@@ -1,19 +1,52 @@
 <View>
-  <Image name="image" value="$image"></Image>
+  <Image name="image" value="$image"/>
 
-  <RectangleLabels name="label" toName="image">
-    <Label value="DATE" background="green"></Label>
-    <Label value="AMOUNT" background="blue"></Label>
-    <Label value="S_AMOUNT" background="red"></Label>
-    <Label value="NONNEGOT" background="yellow"></Label>
-    <Label value="SEAL" background="purple"></Label>
-    <Label value="PAY_TO" background="white"></Label>
-  </RectangleLabels>
+    <Header value=""/>
+    
+    <RectangleLabels name="label" toName="image">
+    <View style="width:80%;height:20%;">
+      <Header value="機打" style="color:#FA8072;font-size:100%;"/>
+      <Label value="DATE_O" background="green"/>
+      <Label value="AMOUNT_O" background="blue"/>
+      <Label value="S_AMOUNT_O" background="red"/>
+      <Label value="NONNEGOT_S" background="yellow"/>
+      <Label value="SEAL_S" background="purple"/>
+      <Label value="PAY_TO_O" background="white"/>
+      <Header value=""/>
+  	</View>
+  
+  	<View style="width:80%;height:20%;">
+      <Header value="手寫" style="color:#3498DB;font-size:100%;"/>
+      <Label value="DATE_W" background="green"/>
+      <Label value="AMOUNT_W" background="blue"/>
+      <Label value="S_AMOUNT_W" background="red"/>
+      <Label value="NONNEGOT_W" background="yellow"/>
+      <Label value="SEAL_W" background="purple"/>
+      <Label value="PAY_TO_W" background="white"/>
+      <Header value=""/>
+  	</View>
+  
+  	<View style="width:80%;height:20%;">
+      <Header value="空白" style="color:#52BE80;font-size:100%;"/>
+      <Label value="DATE_B" background="green"/>
+      <Label value="AMOUNT_B" background="blue"/>
+      <Label value="S_AMOUNT_B" background="red"/>
+      <Label value="AREA" background="purple"/>
+      <Label value="PAY_TO_B" background="white"/>
+      <Header value=""/>
+  	</View>
+  
+  	<View style="width:80%;height:20%;">
+      <Header value="其他" style="color:#B2BABB;font-size:100%;"/>
+      <Label value="NONNEGOT_I" background="green"/>
+      <Label value="PAY_TO_S" background="white"/>
+      <Header value=""/>
+  	</View>
+   </RectangleLabels>
 
-  <Header value="Describe object"></Header>
-  <TextArea name="answer" toName="image" editable="true" perRegion="true"></TextArea>
+  
+  <Header value="輸入物件內容 (請點選上圖已標記物件)" />
+  <TextArea name="answer" toName="image" editable="true"
+            perRegion="true" />
 
-  <View style="width: 100%; display: block">
-    <Header value="Select bbox after creation to go next"></Header>
-  </View>
 </View>

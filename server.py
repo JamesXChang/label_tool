@@ -170,6 +170,8 @@ def labeling_page():
 
         if project.ml_backends_connected:
             task_data = project.make_predictions(task_data)
+            print("===================predict_task_data====================")
+            print(task_data)
             # add change for predictions JSON ?
 
     project.analytics.send(getframeinfo(currentframe()).function)
