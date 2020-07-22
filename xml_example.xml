@@ -4,6 +4,8 @@
   
   <Header value="手寫"></Header>
   <RectangleLabels name="label" toName="image">
+    <Header value="手寫"></Header>
+    <Header value=""></Header>
     <Label value="DATE" background="green"></Label>
     <Label value="AMOUNT" background="blue"></Label>
     <Label value="S_AMOUNT" background="red"></Label>
@@ -13,7 +15,17 @@
   </RectangleLabels>
   
   <Header value="機打"></Header>
-  <RectangleLabels name="label2" toName="image">
+  <RectangleLabels name="label_O" toName="image">
+    <Label value="DATE2" background="green"></Label>
+    <Label value="AMOUNT2" background="blue"></Label>
+    <Label value="S_AMOUNT2" background="red"></Label>
+    <Label value="NONNEGOT2" background="yellow"></Label>
+    <Label value="SEAL2" background="purple"></Label>
+    <Label value="PAY_TO2" background="white"></Label>
+  </RectangleLabels>
+  
+  <Header value="空白"></Header>
+  <RectangleLabels name="label_B" toName="image">
     <Label value="DATE2" background="green"></Label>
     <Label value="AMOUNT2" background="blue"></Label>
     <Label value="S_AMOUNT2" background="red"></Label>

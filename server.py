@@ -154,9 +154,23 @@ def labeling_page():
         # Task explore mode
         task_data = project.get_task_with_completions(task_id) or project.source_storage.get(task_id)
         task_data = resolve_task_data_uri(task_data)
+        
+        # Chun-Teng Chang, modified at 2020.07.22
+        # recalculate the labeling output for x,y,height,weight in view page
+        # original present by px, we format change to %, in order to show correct on the view page
+        for i in range(len(task_data['completions'])):
+            for j in range(len(task_data['completions'][0]['result'])):
+                task_data['completions'][i]['result'][j]['value']['x'] = task_data['completions'][i]['result'][j]['value']['x']/task_data['completions'][i]['result'][j]['original_width']*100
+                task_data['completions'][i]['result'][j]['value']['y'] = task_data['completions'][i]['result'][j]['value']['y']/task_data['completions'][i]['result'][j]['original_height']*100
+                task_data['completions'][i]['result'][j]['value']['width'] = task_data['completions'][i]['result'][j]['value']['width']/task_data['completions'][i]['result'][j]['original_width']*100
+                task_data['completions'][i]['result'][j]['value']['height'] = task_data['completions'][i]['result'][j]['value']['height']/task_data['completions'][i]['result'][j]['original_height']*100
+        
+        print("===================task_data====================")
+        print(task_data)
 
         if project.ml_backends_connected:
             task_data = project.make_predictions(task_data)
+            # add change for predictions JSON ?
 
     project.analytics.send(getframeinfo(currentframe()).function)
     return flask.render_template(
@@ -496,6 +510,7 @@ def api_export():
     project_export_dir = os.path.join(os.path.dirname(completion_dir), 'export')
     os.makedirs(project_export_dir, exist_ok=True)
 
+    # export zip file name
     zip_dir = os.path.join(project_export_dir, now.strftime('%Y-%m-%d-%H-%M-%S'))
     os.makedirs(zip_dir, exist_ok=True)
 
@@ -720,7 +735,7 @@ def api_completions(task_id):
             completion['result'][i]['value']['width'] = completion['result'][i]['value']['width']*completion['result'][i]['original_width']*0.01
             completion['result'][i]['value']['height'] = completion['result'][i]['value']['height']*completion['result'][i]['original_height']*0.01
 
-        print("==============================================")
+        print("======================submit========================")
         print(completion)
         completion.pop('state', None)  # remove editor state
         completion_id = project.save_completion(int(task_id), completion)
@@ -776,6 +791,18 @@ def api_completion_update(task_id, completion_id):
     task_id = int(task_id)
     project = project_get_or_create()
     completion = request.json
+
+    # Chun-Teng Chang, modified at 2020.07.22
+    # recalculate the JSON output for x,y,height,weight
+    # original present by %, we change to real location (px)
+    for i in range(len(completion['result'])):
+        completion['result'][i]['value']['x'] = completion['result'][i]['value']['x']*completion['result'][i]['original_width']*0.01
+        completion['result'][i]['value']['y'] = completion['result'][i]['value']['y']*completion['result'][i]['original_height']*0.01
+        completion['result'][i]['value']['width'] = completion['result'][i]['value']['width']*completion['result'][i]['original_width']*0.01
+        completion['result'][i]['value']['height'] = completion['result'][i]['value']['height']*completion['result'][i]['original_height']*0.01
+    
+    print("===================update====================")
+    print(completion)
 
     completion.pop('state', None)  # remove editor state
     completion['id'] = int(completion_id)
